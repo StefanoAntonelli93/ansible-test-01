@@ -1,15 +1,10 @@
-- name: Basic System Setup
+- name: Basic System Setup (logic test)
   hosts: capsule-web
-  become: true
+  gather_facts: false
   tasks:
-    - name: Update all security-related package
-      ansible.builtin.package:
-        name: '*'
-        state: 'latest'
-        security: true
+    - name: Ping host
+      ansible.builtin.ping:
 
-    - name: Create new user
-      ansible.builtin.user:
-        name: stefano
-        state: present
-        create_home: true
+    - name: Show Host Name 
+      ansible.builtin.debug:
+        msg: "I'm running on host: {{ inventory_hostname }}"
