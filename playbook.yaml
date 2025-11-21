@@ -9,7 +9,7 @@
         security: true
 
     - name: Create new user
-      ansible.builtin.package:
+      ansible.builtin.user:
         name: stefano
         state: present
         create_home: true
