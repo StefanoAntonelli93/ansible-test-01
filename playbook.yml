@@ -1,0 +1,19 @@
+- name: Local test + create user stefano
+  hosts: local
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Ping host
+      ansible.builtin.ping:
+
+    - name: Show host name
+      ansible.builtin.debug:
+        msg: "I'm running on host: {{ inventory_hostname }}"
+
+    - name: Ensure user 'stefano' exists
+      ansible.builtin.user:
+        name: stefano
+        state: present
+        create_home: true
+        shell: /bin/bash

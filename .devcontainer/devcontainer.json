@@ -1,0 +1,20 @@
+{
+  "name": "Ansible",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/ansible:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.ansible",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+  "postCreateCommand": "/usr/local/bin/post-create.sh | tee /tmp/post-create.log",
+  "remoteUser": "root"
+}
